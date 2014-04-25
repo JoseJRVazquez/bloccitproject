@@ -6,7 +6,7 @@ gem 'rails', '4.0.4'
 # Use sqlite3 as the database for evelopment, and use POSTGRES for production
 group :production do
   gem 'pg'
-  gem 'rails_12factor'
+
 end
 
 group :development do
@@ -32,8 +32,6 @@ gem 'coffee-rails', '~> 4.0.0'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 
-#Seed data using FAKER
-gem 'faker'
 
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
@@ -46,6 +44,11 @@ group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
 end
+
+#Seed data using FAKER
+gem 'faker'
+gem 'devise'
+gem 'figaro'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
