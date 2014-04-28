@@ -1,0 +1,110 @@
+Searching 252 files for "posts_path"
+
+0 matches across 0 files
+
+
+Searching 252 files for "posts_path"
+
+0 matches across 0 files
+
+
+Searching 252 files for "index"
+
+/Users/JRV/code/bloccit/app/controllers/topics_controller.rb:
+    1  class TopicsController < ApplicationController
+    2:   def index
+    3      @topics = Topic.all
+    4      authorize @topics
+
+/Users/JRV/code/bloccit/app/controllers/welcome_controller.rb:
+    1  class WelcomeController < ApplicationController
+    2:   def index
+    3    end
+    4  
+
+/Users/JRV/code/bloccit/app/policies/application_policy.rb:
+    7    end
+    8  
+    9:   def index?
+   10      false
+   11    end
+
+/Users/JRV/code/bloccit/app/policies/post_policy.rb:
+    1  class PostPolicy < ApplicationPolicy
+    2  
+    3: def index?
+    4    true
+    5  end
+
+/Users/JRV/code/bloccit/app/policies/topic_policy.rb:
+    1  class TopicPolicy < ApplicationPolicy
+    2  
+    3:   def index?
+    4      true
+    5    end
+
+/Users/JRV/code/bloccit/config/routes.rb:
+    6  
+    7    resources :topics do
+    8:     resources :posts, except: [:index]
+    9    end
+   10  
+   11    get 'about' => 'welcome#about'
+   12  
+   13:   root to: 'welcome#index'
+   14  end
+   15  
+
+/Users/JRV/code/bloccit/db/schema.rb:
+   21    end
+   22  
+   23:   add_index "comments", ["post_id"], name: "index_comments_on_post_id"
+   24  
+   25    create_table "posts", force: true do |t|
+   ..
+   32    end
+   33  
+   34:   add_index "posts", ["topic_id"], name: "index_posts_on_topic_id"
+   35:   add_index "posts", ["user_id"], name: "index_posts_on_user_id"
+   36  
+   37    create_table "topics", force: true do |t|
+   ..
+   64    end
+   65  
+   66:   add_index "users", ["email"], name: "index_users_on_email", unique: true
+   67:   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+   68  
+   69  end
+
+/Users/JRV/code/bloccit/db/migrate/20140424164614_create_comments.rb:
+    3      create_table :comments do |t|
+    4        t.text :body
+    5:       t.references :post, index: true
+    6  
+    7        t.timestamps
+
+/Users/JRV/code/bloccit/db/migrate/20140424194135_devise_create_users.rb:
+   38      end
+   39  
+   40:     add_index :users, :email,                unique: true
+   41:     add_index :users, :reset_password_token, unique: true
+   42:     # add_index :users, :confirmation_token,   unique: true
+   43:     # add_index :users, :unlock_token,         unique: true
+   44    end
+   45  end
+
+/Users/JRV/code/bloccit/db/migrate/20140425011605_add_user_to_posts.rb:
+    2    def change
+    3      add_column :posts, :user_id, :integer
+    4:     add_index :posts, :user_id
+    5    end
+    6  end
+
+/Users/JRV/code/bloccit/db/migrate/20140428160946_add_topic_to_posts.rb:
+    2    def change
+    3      add_column :posts, :topic_id, :integer
+    4:     add_index :posts, :topic_id
+    5    end
+    6  end
+
+24 matches across 11 files
