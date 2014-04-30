@@ -6,6 +6,7 @@ gem 'rails', '4.0.4'
 # Use sqlite3 as the database for evelopment, and use POSTGRES for production
 group :production do
   gem 'pg'
+  gem 'rails_12factor'
 end
 
 group :development do
