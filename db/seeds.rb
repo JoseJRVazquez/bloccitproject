@@ -14,7 +14,7 @@ users = User.all
  
  
 # Create Topics
-20.times do
+15.times do
   Topic.create(
     name:         Faker::Lorem.sentence,
     description:  Faker::Lorem.paragraph 
@@ -24,7 +24,7 @@ topics = Topic.all
  
  
 # Create Posts
-100.times do
+50.times do
   Post.create(
     user:   users.sample,
     topic: topics.sample,
@@ -85,5 +85,6 @@ member.save
  
 puts "Seed finished"
 puts "#{User.count} users created"
+puts "#{Topic.count} Topics created"
 puts "#{Post.count} posts created"
 puts "#{Comment.count} comments created"

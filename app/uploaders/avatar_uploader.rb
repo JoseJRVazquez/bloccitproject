@@ -1,3 +1,5 @@
+# app/uploaders/avatar_uploader.rb
+
 # encoding: utf-8
 
 class AvatarUploader < CarrierWave::Uploader::Base
@@ -25,7 +27,7 @@ class AvatarUploader < CarrierWave::Uploader::Base
   # end
 
   # Process files as they are uploaded:
-  process resize_to_fill: [200, 200]  #was 90X90..but was changed...dont know why?
+  process resize_to_fill: [200, 200]
   #
   # def scale(width, height)
   #   # do something

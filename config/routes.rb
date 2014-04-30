@@ -2,6 +2,8 @@
 Bloccit::Application.routes.draw do
 
 
+  get "comment/create"
+  get "comment/destroy"
   devise_for :users
   resources :users, only: [:update]
 
