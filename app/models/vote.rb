@@ -4,5 +4,13 @@ class Vote < ActiveRecord::Base
 
   #validates the vote, and will reject non-matching votes, but god knows how that happens
   validates :value, inclusion: { in: [-1, 1], message: "%{value} is not a valid vote." }
+  
+  after_save :update_post #runs update post everytime vote is saved
+
+  private
+
+  def update_post 
+    self.post.update_rank
+  end
 end
 
