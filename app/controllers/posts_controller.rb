@@ -3,7 +3,8 @@ class PostsController < ApplicationController
   def show
     @topic = Topic.find(params[:topic_id])
     @post = Post.find(params[:id])
-    @comment = Comment.find(params[:id])
+    @comments = @post.comments
+    @comment = Comment.new
   end
 
   def new
@@ -47,10 +48,6 @@ class PostsController < ApplicationController
       render :edit
     end
   end
-  private
-  def post_params
-    params.require(:post).permit(:title, :body, :image)
-  end
 
   def destroy
     @topic = Topic.find(params[:topic_id])
@@ -65,5 +62,13 @@ class PostsController < ApplicationController
       flash[:error] = "There was an error deleting the post."
       render :show
     end
+  end
+
+  private
+
+  def post_params
+    params.require(:post).permit(:title, :body, :image)
+  end
+  
 end
-end
+
