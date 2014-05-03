@@ -3,6 +3,7 @@ class Post < ActiveRecord::Base
   belongs_to :user
   belongs_to :topic
   mount_uploader :image
+  has_many :votes, dependent: :destroy
 
   default_scope { order('created_at DESC') }
 
