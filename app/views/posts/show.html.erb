@@ -21,6 +21,14 @@
       <%= link_to "Destroy Post", [@topic, @post], method: :delete, class: 'btn btn-danger', data: { confirm: 'Are you sure you want to ditch this post? (Was it really that bad?)' } %>
     <% end %>
   </div>
+  <div>
+    <h3><%= pluralize(@post.points, 'point') %></h3>
+    <small>
+      <%= pluralize(@post.up_votes, 'up vote') %>, 
+      <%= pluralize(@post.down_votes, 'down vote') %>
+    </small>
+  </div>
+
    <% if policy(@comment).create? %>
       <%= render partial: 'comments/form', locals: { topic: @topic, post: @post, comment: @comment } %>
     <% end %>
