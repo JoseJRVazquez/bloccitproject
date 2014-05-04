@@ -9,9 +9,10 @@ group :production do
   gem 'rails_12factor'
 end
 
-group :development do
+group :development, :test do
   gem 'sqlite3'
   gem 'rspec-rails'
+  gem 'factory_girl_rails', '~> 4.0'
 end
 
 # Bootstrap CSS framework added to project
