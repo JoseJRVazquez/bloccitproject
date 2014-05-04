@@ -5,7 +5,7 @@ Bloccit::Application.routes.draw do
 
   get "posts/index"
   devise_for :users
-  resources :users, only: [:show, :update]
+  resources :users, only: [:show, :index, :update]
 
   resources :posts, only: [:index]
   
