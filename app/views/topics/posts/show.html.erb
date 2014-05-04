@@ -30,6 +30,9 @@
   </div>
   <hr/>
     <h2 class='js-comments-count'><%= @comments.count %> Comments</h2>
+    <div class='js-comments'>
+      <%= render partial: 'comments/comment', collection: @comments %>
+    </div>
     <%= render partial: 'favorites/favorite', locals: { topic: @topic, post: @post } %>
    <% if policy(@comment).create? %>
       <%= render partial: 'comments/comment', collection: @comments %>
