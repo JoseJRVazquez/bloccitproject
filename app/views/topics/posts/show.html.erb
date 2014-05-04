@@ -28,6 +28,8 @@
       <%= pluralize(@post.down_votes, 'down vote') %>
     </small>
   </div>
+  <hr/>
+    <h2 class='js-comments-count'><%= @comments.count %> Comments</h2>
     <%= render partial: 'favorites/favorite', locals: { topic: @topic, post: @post } %>
    <% if policy(@comment).create? %>
       <%= render partial: 'comments/comment', collection: @comments %>
